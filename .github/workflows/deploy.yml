@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - master # Triggers the workflow only on pushes to the master branch
+      - master # Triggers the workflow on pushes to the master branch
 
 jobs:
   build:
@@ -26,7 +26,7 @@ jobs:
         run: npm run build
 
       - name: Upload production-ready build files
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3 # Updated to v3
         with:
           name: production-files
           path: ./dist
